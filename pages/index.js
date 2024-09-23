@@ -1,7 +1,7 @@
+import styles from "@/styles/Home.module.css";
+import localFont from "next/font/local";
 import Head from "next/head";
 import Image from "next/image";
-import localFont from "next/font/local";
-import styles from "@/styles/Home.module.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,6 +26,7 @@ export default function Home() {
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
+        <p>Ini materi hari ke-3</p>
         <main className={styles.main}>
           <Image
             className={styles.logo}
