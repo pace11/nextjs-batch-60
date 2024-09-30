@@ -40,3 +40,11 @@ a {
     color-scheme: dark;
   }
 }
+
+.box {
+  border: 1px solid black;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}

@@ -1,20 +1,29 @@
-import styles from "@/styles/Home.module.css";
-import localFont from "next/font/local";
-import Head from "next/head";
-import Image from "next/image";
+import ProductCard from '@/components/product-card';
+import ProductCardStateless from '@/components/product-card-stateless';
+import styles from '@/styles/Home.module.css';
+import localFont from 'next/font/local';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
 });
+
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
 });
 
 export default function Home() {
+  const router = useRouter();
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
+
   return (
     <>
       <Head>
@@ -43,7 +52,7 @@ export default function Home() {
             <li>Save and see your changes instantly.</li>
           </ol>
 
-          <div className={styles.ctas}>
+          <div className="">
             <a
               className={styles.primary}
               href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -113,6 +122,27 @@ export default function Home() {
             Go to nextjs.org →
           </a>
         </footer>
+        <div className="section-box">
+          <p>Component Stateful</p>
+          <hr />
+          <ProductCard />
+          <ProductCard />
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <p>Component Stateless</p>
+          <hr />
+          <ProductCardStateless
+            count={count}
+            setCount={() => setCount((count) => count + 10)}
+          />
+          <ProductCardStateless
+            count={count2}
+            setCount={() => setCount2((count2) => count2 + 20)}
+          />
+        </div>
       </div>
     </>
   );
