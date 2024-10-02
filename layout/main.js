@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function MainLayout({
@@ -23,6 +24,43 @@ export default function MainLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>Header</div>
+      <br />
+      <hr />
+      <div>
+        <ul>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link
+              href={{
+                pathname: '/about',
+                query: {
+                  name: 'pace',
+                  age: 20,
+                },
+              }}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link href="/member">Member</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/products">Products</Link>
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <br />
+      <br />
       <div>{children}</div>
       {isRenderFooter && <div>Footer</div>}
     </>
